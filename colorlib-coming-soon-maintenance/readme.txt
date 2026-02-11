@@ -1,14 +1,14 @@
 === Coming Soon & Maintenance Mode by Colorlib ===
-  Plugin URI: https://colorlib.com/
-  Description: Create a coming soon page or maintenance mode screen with 15 responsive templates, countdown timer, MailChimp subscribe form, and social media links.
-  Tags: coming soon, maintenance mode, under construction, countdown timer, landing page
-  Requires at least: 6.0
-  Tested up to: 6.9
-  Requires PHP: 7.4
-  Contributors: silkalns
-  Stable tag: 1.2.0
-  License: GPLv3 or later
-  License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Contributors: silkalns
+Tags: coming soon, maintenance mode, under construction, countdown timer, landing page
+Requires at least: 6.0
+Tested up to: 6.9
+Requires PHP: 7.4
+Stable tag: 1.2.0
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+Create a coming soon page or maintenance mode screen with 15 responsive templates, countdown timer, MailChimp subscribe form, and social media links.
 
 == Description ==
 
