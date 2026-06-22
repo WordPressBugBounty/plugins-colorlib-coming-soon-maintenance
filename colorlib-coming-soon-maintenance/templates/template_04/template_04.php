@@ -44,7 +44,7 @@ $dates             = ccsm_counter_dates( $counter );
  			    if ( $ccsm_options['colorlib_coming_soon_subscribe'] != '1' ) {  
 			?>
 
-                <button class="flex-c-m s1-txt2 size3 how-btn" data-toggle="modal" data-target="#subscribe"
+                <button class="flex-c-m s1-txt2 size3 how-btn" data-ccsm-modal="subscribe"
                         id="colorlib_coming_soon_page_footer">
 					<?php echo wp_kses_post( $ccsm_options['colorlib_coming_soon_page_footer'] ); ?>
                 </button>
@@ -66,7 +66,7 @@ $dates             = ccsm_counter_dates( $counter );
         <div class="modal-dialog" role="document">
             <div class="modal-subscribe where1-parent bg0 bor2 size4 p-t-54 p-b-100 p-l-15 p-r-15">
                 <button class="btn-close-modal how-btn2 fs-26 where1 trans-04">
-                    <i class="zmdi zmdi-close" data-dismiss="modal"></i>
+                    <?php echo ccsm_icon('close'); ?>
                 </button>
 
                 <div class="wsize1 m-lr-auto">
@@ -124,18 +124,13 @@ if ( is_customize_preview() ) {
 ?>
 <?php if ( $counterActivation == '1' && $dates['script'] != false ) { ?>
     <script>
-        jQuery('.cd100').countdown100({
-            /*Set Endtime here*/
-            /*Endtime must be > current time*/
-            endtimeYear: <?php echo wp_json_encode( $dates['script']['year'] ); ?>,
-            endtimeMonth: <?php echo wp_json_encode( $dates['script']['month'] ); ?>,
-            endtimeDate: <?php echo wp_json_encode( $dates['script']['day'] ); ?>,
-            endtimeHours: <?php echo wp_json_encode( $dates['script']['hour'] ); ?>,
-            endtimeMinutes: <?php echo wp_json_encode( $dates['script']['minute'] ); ?>,
-            endtimeSeconds: <?php echo wp_json_encode( $dates['script']['second'] ); ?>,
-            timeZone: ""
-            // ex:  timeZone: "America/New_York"
-            //go to " http://momentjs.com/timezone/ " to get timezone
-        });
+        window.CCSM_COUNTDOWN = {
+            year: <?php echo wp_json_encode( $dates['script']['year'] ); ?>,
+            month: <?php echo wp_json_encode( $dates['script']['month'] ); ?>,
+            day: <?php echo wp_json_encode( $dates['script']['day'] ); ?>,
+            hour: <?php echo wp_json_encode( $dates['script']['hour'] ); ?>,
+            minute: <?php echo wp_json_encode( $dates['script']['minute'] ); ?>,
+            second: <?php echo wp_json_encode( $dates['script']['second'] ); ?>
+        };
     </script>
 <?php } ?>

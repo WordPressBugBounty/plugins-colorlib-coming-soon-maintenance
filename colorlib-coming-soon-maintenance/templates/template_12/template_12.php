@@ -53,7 +53,7 @@ if ( is_ssl()  ) {
                                        placeholder="<?php echo esc_attr__( 'Email Address', 'colorlib-coming-soon-maintenance' ); ?>">
 
                                 <button class="flex-c-m ab-t-r size2 hov1" name="subscribe">
-                                    <i class="zmdi zmdi-long-arrow-right fs-30 cl1 trans-04"></i>
+                                    <?php echo ccsm_icon('long-arrow-right', 'fs-30 cl1 trans-04'); ?>
                                 </button>
                             </div>
                         </form>
@@ -68,7 +68,7 @@ if ( is_ssl()  ) {
                     <a href="<?php echo esc_url( $ccsm_options['colorlib_coming_soon_social_facebook'] ); ?>"
                        id="colorlib_coming_soon_social_facebook"
                        class="size3 flex-c-m how-social trans-04 m-r-15 m-b-10">
-                        <i class="fa fa-facebook"></i>
+                        <?php echo ccsm_icon('facebook'); ?>
                     </a>
 					<?php
 				}
@@ -77,7 +77,7 @@ if ( is_ssl()  ) {
                     <a href="<?php echo esc_url( $ccsm_options['colorlib_coming_soon_social_twitter'] ); ?>"
                        id="colorlib_coming_soon_social_twitter"
                        class="size3 flex-c-m how-social trans-04 m-r-15 m-b-10">
-                        <i class="fa fa-twitter"></i>
+                        <?php echo ccsm_icon('twitter'); ?>
                     </a>
 					<?php
 				}
@@ -86,7 +86,7 @@ if ( is_ssl()  ) {
                     <a href="<?php echo esc_url( $ccsm_options['colorlib_coming_soon_social_youtube'] ); ?>"
                        id="colorlib_coming_soon_social_youtube"
                        class="size3 flex-c-m how-social trans-04 m-r-15 m-b-10">
-                        <i class="fa fa-youtube-play"></i>
+                        <?php echo ccsm_icon('youtube-play'); ?>
                     </a>
 					<?php
 				}
@@ -95,7 +95,7 @@ if ( is_ssl()  ) {
                     <a href="mailto:<?php echo esc_html( antispambot( $ccsm_options['colorlib_coming_soon_social_email'] ) ); ?>"
                        [
                        id="colorlib_coming_soon_social_email" class="size3 flex-c-m how-social trans-04 m-r-15 m-b-10">
-                        <i class="fa fa-envelope"></i>
+                        <?php echo ccsm_icon('envelope'); ?>
                     </a>
 					<?php
 				}
@@ -104,7 +104,7 @@ if ( is_ssl()  ) {
                     <a href="<?php echo esc_url( $ccsm_options['colorlib_coming_soon_social_pinterest'] ); ?>"
                        id="colorlib_coming_soon_social_pinterest"
                        class="size3 flex-c-m how-social trans-04 m-r-15 m-b-10">
-                        <i class="fa fa-pinterest"></i>
+                        <?php echo ccsm_icon('pinterest'); ?>
                     </a>
 					<?php
 				}
@@ -113,7 +113,7 @@ if ( is_ssl()  ) {
                     <a href="<?php echo esc_url( $ccsm_options['colorlib_coming_soon_social_instagram'] ); ?>"
                        id="colorlib_coming_soon_social_instagram"
                        class="size3 flex-c-m how-social trans-04 m-r-15 m-b-10">
-                        <i class="fa fa-instagram"></i>
+                        <?php echo ccsm_icon('instagram'); ?>
                     </a>
 					<?php
 				}
@@ -145,18 +145,13 @@ if ( is_customize_preview() ) {
 ?>
 <?php if ( $counterActivation == '1' && $dates['script'] != false ) { ?>
     <script>
-        jQuery('.cd100').countdown100({
-            /*Set Endtime here*/
-            /*Endtime must be > current time*/
-            endtimeYear: <?php echo wp_json_encode( $dates['script']['year'] ); ?>,
-            endtimeMonth: <?php echo wp_json_encode( $dates['script']['month'] ); ?>,
-            endtimeDate: <?php echo wp_json_encode( $dates['script']['day'] ); ?>,
-            endtimeHours: <?php echo wp_json_encode( $dates['script']['hour'] ); ?>,
-            endtimeMinutes: <?php echo wp_json_encode( $dates['script']['minute'] ); ?>,
-            endtimeSeconds: <?php echo wp_json_encode( $dates['script']['second'] ); ?>,
-            timeZone: ""
-            // ex:  timeZone: "America/New_York"
-            //go to " http://momentjs.com/timezone/ " to get timezone
-        });
+        window.CCSM_COUNTDOWN = {
+            year: <?php echo wp_json_encode( $dates['script']['year'] ); ?>,
+            month: <?php echo wp_json_encode( $dates['script']['month'] ); ?>,
+            day: <?php echo wp_json_encode( $dates['script']['day'] ); ?>,
+            hour: <?php echo wp_json_encode( $dates['script']['hour'] ); ?>,
+            minute: <?php echo wp_json_encode( $dates['script']['minute'] ); ?>,
+            second: <?php echo wp_json_encode( $dates['script']['second'] ); ?>
+        };
     </script>
 <?php } ?>

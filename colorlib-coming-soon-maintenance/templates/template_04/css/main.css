@@ -24,18 +24,21 @@ body {
 }
 
 .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     padding: 0px !important;
     z-index: 1160;
     overflow-x: hidden;
     overflow-y: auto !important;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-open {
-    overflow-y: scroll;
-}
-
-.modal-backdrop.show {
-    opacity: 0;
+.modal.show {
+    display: block;
 }
 
 .modal-dialog {
@@ -164,8 +167,8 @@ input.input100 {
 }
 
 .alert-validate::after {
-    content: "\f06a";
-    font-family: FontAwesome;
+    content: "\26A0\FE0E";
+    font-family: sans-serif;
     display: block;
     position: absolute;
     color: #c80000;

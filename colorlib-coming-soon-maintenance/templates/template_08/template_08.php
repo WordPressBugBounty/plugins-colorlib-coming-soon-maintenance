@@ -17,7 +17,7 @@ if ( is_ssl()  ) {
          style="background-image: url('<?php echo esc_url($bcg_url); ?>');">
         <div class="wsize1">
             <p class="txt-center p-b-23">
-                <i class="zmdi zmdi-card-giftcard cl0 fs-60"></i>
+                <?php echo ccsm_icon('card-giftcard', 'cl0 fs-60'); ?>
             </p>
 
             <h3 class="l1-txt1 txt-center p-b-22" id="colorlib_coming_soon_page_heading">
@@ -90,18 +90,13 @@ if ( is_customize_preview() ) {
 ?>
 <?php if ( $counterActivation == '1' && $dates['script'] != false ) { ?>
     <script>
-        jQuery('.cd100').countdown100({
-            /*Set Endtime here*/
-            /*Endtime must be > current time*/
-            endtimeYear: <?php echo wp_json_encode( $dates['script']['year'] ); ?>,
-            endtimeMonth: <?php echo wp_json_encode( $dates['script']['month'] ); ?>,
-            endtimeDate: <?php echo wp_json_encode( $dates['script']['day'] ); ?>,
-            endtimeHours: <?php echo wp_json_encode( $dates['script']['hour'] ); ?>,
-            endtimeMinutes: <?php echo wp_json_encode( $dates['script']['minute'] ); ?>,
-            endtimeSeconds: <?php echo wp_json_encode( $dates['script']['second'] ); ?>,
-            timeZone: ""
-            // ex:  timeZone: "America/New_York"
-            //go to " http://momentjs.com/timezone/ " to get timezone
-        });
+        window.CCSM_COUNTDOWN = {
+            year: <?php echo wp_json_encode( $dates['script']['year'] ); ?>,
+            month: <?php echo wp_json_encode( $dates['script']['month'] ); ?>,
+            day: <?php echo wp_json_encode( $dates['script']['day'] ); ?>,
+            hour: <?php echo wp_json_encode( $dates['script']['hour'] ); ?>,
+            minute: <?php echo wp_json_encode( $dates['script']['minute'] ); ?>,
+            second: <?php echo wp_json_encode( $dates['script']['second'] ); ?>
+        };
     </script>
 <?php } ?>
